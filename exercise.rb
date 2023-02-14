@@ -4,7 +4,17 @@ class Exercise
   # Return a string in which every word in "str" that exceeds 4 characters is replaced with "marklar".
   # If the word being replaced has a capital first letter, it should instead be replaced with "Marklar".
   def self.marklar(str)
-    # TODO: Implement this method
+    str.split.map do |word|
+      if word.length > 4
+        if word[0] == word[0].upcase
+          "Marklar"
+        else
+          "marklar"
+        end
+      else
+        word
+      end
+    end.join(" ")
   end
 
   # Return the sum of all even numbers in the Fibonacci sequence, up to
