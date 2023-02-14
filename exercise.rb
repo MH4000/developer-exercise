@@ -7,14 +7,18 @@ class Exercise
     str.split.map do |word|
       if word.length > 4
         if word[0] == word[0].upcase
-          "Marklar"
+          modified_word = "Marklar"
         else
-          "marklar"
+          modified_word = "marklar"
         end
+        if word.match(/[[:punct:]]$/) # check if word ends with punctuation
+          modified_word += word[-1] # add punctuation to modified word
+        end
+        modified_word
       else
         word
       end
-    end.join(" ")
+    end.join(" ")  
   end
 
   # Return the sum of all even numbers in the Fibonacci sequence, up to
